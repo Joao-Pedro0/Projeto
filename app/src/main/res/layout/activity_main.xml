@@ -7,12 +7,68 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView10"
+        android:layout_width="266dp"
+        android:layout_height="60dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="147dp"
+        android:layout_height="31dp"
+        android:text="Senha"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="425dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="222dp"
+        android:layout_height="27dp"
+        android:onClick="AbrirCadastro"
+        android:text="Não tenho cadastro"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="465dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="AbrirPrincipal"
+        android:text="Entrar"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="143dp"
+        android:layout_height="35dp"
+        android:text="Email"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="312dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
