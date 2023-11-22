@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         String email = EditTextEmail.getText().toString();
         String senha =  EditTextSenha.getText().toString();
 
+
+
         if(email.equals("teste") && senha.equals("123")){
             Intent intent = new Intent(this, MainActivityPrincipal.class);
             startActivity(intent);

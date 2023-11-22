@@ -13,10 +13,8 @@ import android.widget.TextView;
 public class MainActivityPrincipal extends AppCompatActivity {
     private boolean running;
     private long startTime;
-    private long pausedTime;
     public Button btnParar;
     public Button btnInicio;
-    public Button btnRedefinir;
     public TextView txtTempo;
 
 
@@ -30,35 +28,38 @@ public class MainActivityPrincipal extends AppCompatActivity {
         txtTempo = findViewById(R.id.textViewTempo);
 
         startTime = 0;
-        pausedTime = 0;
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (running) {
-                    pauseTimer();
-                } else {
-                    startTimer();
+                if (running == false) {
+                    Iniciar();
                 }
             }
         });
 
-
+        btnParar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (running == true) {
+                    Parar();
+                }
+                txtTempo.setText("00:00:00:000");
+            }
+        });
 
     }
 
-    private void startTimer() {
+    private void Iniciar() {
         running = true;
         startTime = System.currentTimeMillis();
-        updateTime();
-        btnInicio.setText("Parar");
+        Atualiza();
     }
 
-    private void pauseTimer() {
+    private void Parar() {
         running = false;
-        btnInicio.setText("Iniciar");
     }
 
-    private void updateTime() {
+    private void Atualiza() {
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
