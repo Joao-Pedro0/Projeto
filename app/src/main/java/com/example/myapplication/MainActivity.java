@@ -39,14 +39,21 @@ public class MainActivity extends AppCompatActivity {
         String email = EditTextEmail.getText().toString();
         String senha =  EditTextSenha.getText().toString();
 
+        AppDataBase db = AppDataBase.getInstance(this);
+        UsuarioDao dao = db.usuarioDao();
 
+        Usuario u = dao.BuscarPorEmail(email);
+        String Senha = u.getSenha();
 
-        if(email.equals("teste") && senha.equals("123")){
-            Intent intent = new Intent(this, MainActivityPrincipal.class);
-            startActivity(intent);
+        if(u == null ){
+            Toast.makeText(getApplicationContext(), "Email não cadastrado", Toast.LENGTH_SHORT).show();
+        }
+        else if(Senha.equals(senha) == false){
+            Toast.makeText(getApplicationContext(), "Senha incorreta", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(getApplicationContext(), "Email ou Senha inválidos", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivityPrincipal.class);
+            startActivity(intent);
         }
 
     }
