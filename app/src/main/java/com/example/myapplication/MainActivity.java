@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         EditTextEmail = findViewById(R.id.editTextEmail);
         EditTextSenha = findViewById(R.id.editTextSenha);
+        Boolean validaEmail = false;
+        Usuario u;
+        String Senha = null;
 
         String email = EditTextEmail.getText().toString();
         String senha =  EditTextSenha.getText().toString();
@@ -42,10 +46,19 @@ public class MainActivity extends AppCompatActivity {
         AppDataBase db = AppDataBase.getInstance(this);
         UsuarioDao dao = db.usuarioDao();
 
-        Usuario u = dao.BuscarPorEmail(email);
-        String Senha = u.getSenha();
+        List<Usuario> usuarios = dao.getUsuarios();
+        for (Usuario usuario : usuarios ) {
+            if(email.equals(usuario.getEmail())){
+                validaEmail = true;
+                u = dao.BuscarPorEmail(email);
+                Senha = u.getSenha();
+                break;
 
-        if(u == null ){
+            }
+        }
+
+
+        if(validaEmail == false ){
             Toast.makeText(getApplicationContext(), "Email não cadastrado", Toast.LENGTH_SHORT).show();
         }
         else if(Senha.equals(senha) == false){
