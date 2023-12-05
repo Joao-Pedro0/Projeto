@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityPrincipal">
 
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="412dp"
+        android:layout_height="438dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        tools:context=".MainActivityPrincipal" />
+
     <Button
         android:id="@+id/btnInicio"
         android:layout_width="0dp"
